@@ -1,0 +1,18 @@
+[package]
+name = "crypto_bench_ring"
+version = "0.1.0"
+edition = "2018"
+
+[lib]
+name = "crypto_bench_ring"
+path = "ring.rs"
+
+[dependencies]
+ring = "0.14"
+criterion = "0.2"
+untrusted = "0.6"
+
+[[bench]]
+name = "ring"
+path = "ring.rs"
+harness = false

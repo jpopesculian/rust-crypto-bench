@@ -1,0 +1,10 @@
+FROM sconecuratedimages/crosscompilers:ubuntu
+
+RUN apt-get update
+RUN apt-get install -y gnuplot ca-certificates
+
+WORKDIR build
+COPY ./Cargo.toml ./Cargo.toml
+COPY ./ring ./ring
+
+RUN scone-cargo bench --target x86_64-scone-linux-musl -p crypto_bench_ring
